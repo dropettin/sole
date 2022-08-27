@@ -1,0 +1,79 @@
+.uni {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+
+.uni {
+  display: -webkit-box;
+ display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-filter: contrast(120%);
+          filter: contrast(120%);
+  background-color: black;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+	position: relative;
+
+}
+
+.content {
+  width: inherit;
+  height: inherit;
+}
+
+@font-face {
+    font-family: Beway;
+    src: url("Beway.otf") format("opentype");
+}
+
+#gfooterContent {
+  font-family: beway;
+  font-size: 110%;
+  color: rgba(200, 220, 255, .4);
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  padding: 20px;
+  text-align: center;
+  z-index: 20;
+  cursor: default;
+}
+
+#gfooter {
+  position: absolute;
+  bottom: 0px;
+  height: 300px;
+  width: 100%;
+}
+
+#scene {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -800px;
+
+}
+
+.giu {
+  text-decoration: none;
+  color: rgba(200, 220, 255, 1);
+  opacity: .45;
+  -webkit-transition: opacity .4s ease;
+  transition: opacity .4s ease;
+}
+.giu:hover {
+  opacity: 1;
+}
+.cor:hover{
+   cursor: pointer;
+}

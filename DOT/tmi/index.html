@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>TMI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto&amp;display=swap'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<link rel="stylesheet" href="./style.css">
+
+
+</head>
+<body>
+
+	<div>
+		<iframe src="the mind illuminated.pdf#toolbar=0" frameBorder="0" 
+	 style=
+		 "scrolling:auto;
+		 position: absolute;
+		 top: 0;
+		 left: 0;
+		 bottom: 0;
+		 border: 0;
+		 height: 100%;
+		 width: 100%;"
+	 ></iframe>
+			 </div>
+
+
+
+<!-- partial:index.partial.html -->
+<input type="checkbox" id="toggle" class="toggle__checkbox" />
+
+<aside class="box">
+	<label for="toggle" class="toggle"><i class="icon"></i></label>
+	
+	<section>
+		<div class="player box__item" style="
+		position: relative;
+		left: 0%;
+		top: 50%;
+		transform: translate(3%, 36%);
+		width: 276px;
+		height: 315px;
+
+		background-color: #fff6e7;
+
+	">
+
+			<div class="cover">
+				<img src="bookmag.png">
+			</div>
+
+			<div class="volume-box">
+				<span class="volume-down"><i class="material-icons">remove</i></span>
+				<input type="range" class="volume-range" step="1" value="80" min="0" max="100"
+					oninput="music.volume = this.value/100">
+				<span class="volume-up"><i class="material-icons">add</i></span>
+			</div>
+
+
+
+			<div class="btn-box">
+				<input type="text" id="firstNumber" class="tbox" placeholder="00:00:00">
+				<button id="calculate" class="tvai">Vai</button>
+
+				<i class="material-icons volume" onclick="handleVolume()">volume_up</i>
+			</div>
+
+			<div class="music-box">
+				<input type="range" step="1" class="seekbar" value="0" min="0"  max="100" oninput="handleSeekBar()">
+	
+				<audio class="music-element">
+					<source src="The Mind Illuminated.mp3" type="audio/mp3">
+				</audio>
+				<span class="current-time">00:00:00</span><span class="duration">13:34:4</span>
+
+
+
+				<div class="btn-box1">
+				<i class="material-icons repeat active" onclick="handleRepeat()">keyboard_double_arrow_left</i>
+
+				<span class="material-icons" onclick="handlePlay()">
+					<i class="material-icons play">play_arrow</i>
+				</span>
+
+				<i class="material-icons favorite active" onclick="handleFavorite()">keyboard_double_arrow_right</i>
+			</div>
+			</div>
+		</div>
+	</section>
+</aside>
+<!-- partial -->
+<script  src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+.screen .card .details-2, .screen .card .details-1 {
+  background-color: white;
+  position: relative;
+  height: 70px;
+  z-index: -10;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+}
+/**  STYLE 4*/
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: darkcyan;
+}
+::-webkit-scrollbar-track {
+	background-color: rgba(0,0,0,0.00);
+}
+::-webkit-scrollbar-thumb {
+	background-color: #000000;
+}
+ 
+
+body {
+  /*background-color: #202B2E;*/
+  display: flex;
+	overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "IM Fell French Canon";
+}
+
+body {
+  perspective: 800px;
+}
+
+body * {
+  transform-style: preserve-3d;
+}
+
+p, h1 {
+  margin: 0;
+  font-weight: 700;
+}
+
+.screen {
+  width: 400px;
+  margin: 50px;
+  /*padding-top: 120px;*/
+  background: transparent;
+  transform: rotate3d(0, 1, 0, 0deg);
+	overflow: scroll;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.screen .card {
+  margin: 0;
+  height: 200px;
+  transition: height 0.5s ease-in-out;
+}
+.screen .card:nth-of-type(1) .front-box {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("115-yerka_amonit-720x340.jpg");
+  background-size: cover;
+}
+.screen .card:nth-of-type(2) .front-box {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("22.jpg");
+  background-size: cover;
+}
+.screen .card:nth-of-type(3) .front-box {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("puzzling-surreal-paintings-jacek-yerka-fb.jpg");
+  background-size: cover;
+}
+.screen .card:nth-of-type(4) .front-box {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("jacekyerka7.jpg");
+  background-size: cover;
+}
+.screen .card .front-box {
+  height: 200px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+	text-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+.screen .card .front-box:hover {
+  cursor: pointer;
+}
+.screen .card .front-box:hover h1 {
+  border-bottom: 2px solid #D8303D;
+}
+.screen .card .front-box:hover p {
+  opacity: 1;
+}
+.screen .card .front-box h1 {
+  border-bottom: 2px solid transparent;
+  padding-bottom: 5px;
+  top: 55px;
+  left: 20px;
+  color: white;
+  z-index: 20;
+  transition: all 0.4s ease-in-out;
+}
+.screen .card .front-box p {
+  color: white;
+  font-style: italic;
+  padding-top: 10px;
+  font-weight: 400;
+  opacity: 0;
+  transition: all 0.5s ease-in-out 0.2s;
+}
+.screen .card .front-box .img-wrapper {
+  height: 200px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.screen .card .details-1 {
+  transform: rotate3d(1, 0, 0, -90deg);
+  transform-origin: top;
+  box-shadow: inset 0px -45px 52px 0px rgba(0, 0, 0, 0.75);
+}
+.screen .card .details-1 p {
+  margin: auto;
+	cursor: pointer;
+}
+.screen .card .details-2 {
+  transform: translate3d(0, -140px, 0px) rotate3d(1, 0, 0, 90deg);
+  transform-origin: bottom;
+  box-shadow: inset 0px 0px 100px 30px rgba(0, 0, 0, 0.75);
+}
+.screen .card .details-2 p {
+  margin: auto;
+	cursor: pointer;
+}
+
+.unfold {
+  height: 70px;
+  transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0deg) !important;
+  box-shadow: inset 0px -45px 52px -70px rgba(0, 0, 0, 0.75) !important;
+}
+
+.span {
+  height: 340px !important;
+}
+
+
+
+
+
+
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+iframe {
+    display:block;
+    width:100%;
+	height:100%;
+	border: none;
+}
+/* Center the image and position the close button */
+
+/* The Modal (background) */
+.modal1 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index:4; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /*overflow: auto;  Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity 
+  padding-top: 10%;              */
+}
+
+/* Modal Content/Box */
+.modal-content1 {
+  /*margin: 17vh auto 17vh auto ;  0% auto 0% auto     .   5% from the top, 15% from the bottom and centered 
+  border: 1px solid #256837;  */
+  width: 100%; /* Could be more or less, depending on screen size quello veroooooooooooooooooo*/
+  height: 100%;
+}
+
+/* The Close Button (x) 
+.close {
+  position:absolute;
+  right: 10%;
+  top: 14%;
+  color: #E00000;
+  font-size: 35px;
+  font-weight: bold;
+}
+*/
+.imgcontainer1 {
+  position: relative;
+}
+.close {
+	float :right;
+	display:block;
+	background:none;
+  position:fixed;
+  right: 0%;
+  top: 0%;
+	z-index: 1;
+  color: red;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #B30000;
+  cursor: pointer;
+}
+/* Add Zoom Animation */
+.animate1 {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+/* Change styles for span and cancel button on extra small screens */
+
+
+
+
+
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
+iframe {
+    display:block;
+    width:100%;
+	height:100%;
+	border: none;
+}
+/* Center the image and position the close button */
+
+/* The Modal (background) */
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index:4; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /*overflow: auto;  Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity 
+  padding-top: 10%;              */
+}
+
+/* Modal Content/Box */
+.modal-content2 {
+  /*margin: 17vh auto 17vh auto ;  0% auto 0% auto     .   5% from the top, 15% from the bottom and centered 
+  border: 1px solid #256837;  */
+  width: 100%; /* Could be more or less, depending on screen size quello veroooooooooooooooooo*/
+  height: 100%;
+}
+
+/* The Close Button (x) 
+.close {
+  position:absolute;
+  right: 10%;
+  top: 14%;
+  color: #E00000;
+  font-size: 35px;
+  font-weight: bold;
+}
+*/
+.imgcontainer2 {
+  position: relative;
+}
+.close {
+	float :right;
+	display:block;
+	background:none;
+  position:fixed;
+  right: 0%;
+  top: 0%;
+	z-index: 1;
+  color: red;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #B30000;
+  cursor: pointer;
+}
+/* Add Zoom Animation */
+.animate2 {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+/* Change styles for span and cancel button on extra small screens */

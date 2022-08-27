@@ -1,0 +1,697 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap');
+/*
+ * Styles: Body, HTML, and container
+ * 1: Make the application fullscreen
+ * 2: Basic reset styles
+ */
+body,
+html,
+.seq {
+  /* #1 */
+  width: 100%;
+  height: 100%;
+
+  /* #2 */
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 320px;
+  height: 320px;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+  &.visible {
+    display: block;
+  }
+}
+
+.modal__header {
+  color: white;
+  background: #333;
+  line-height: 50px;
+  text-align: center;
+  position: relative;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.fot {
+  content: url("F/ESTJ.svg");
+  height: 250px;
+  width: 250px;
+}
+.CONTE {
+  color: #777777;
+  z-index: 22;
+    cursor: pointer;
+    position: relative;
+ /* text-align: left;
+  height: fit-content;
+  width: fit-content;
+  font-size: 2rem;*/
+}
+.FAPP:before {
+  position: absolute;
+  right: 0px;
+  font-size: 2rem;
+  content: "";
+  white-space: pre;
+}
+.FCONT:before {
+  content: attr(data-content) "\A AAss";
+}
+.PRYAPP:before {
+  font-size: 1.9rem;
+  content: "";
+  white-space: pre;
+  display: inherit;
+  text-align: center;
+}
+.PRYCONT:before {
+  content: attr(data-content) "";
+}
+.TITAPP {
+  color: #51a9ab;
+}
+.TITAPP:before {
+  display: block;
+  font-size: 1.4em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 600;
+  text-align: center;
+  content: "";
+}
+.TITCONT:before {
+  content: attr(data-content) "";
+}
+.STITAPP:before {
+  color: #7f7f7f;
+  line-height: 1.7;
+  text-align: center;
+  font-size: 0.9em;
+  max-width: 500px;
+  content: "";
+}
+.STITCONT:before {
+  content: attr(data-content) "";
+}
+
+/*
+ * Styles: Container
+ * 1: Canvas, steps, and content should be positioned relative to the container
+ * 2: Hide anything that goes beyond the boundaries of the Sequence container
+ * 3: Some basic styles
+ * 4: Set the initial background color
+ * 5: Make the background color transition when navigating between steps
+ */
+.let {
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  border: 1px medium;
+}
+
+.seq {
+  /* #1 */
+  position: relative;
+
+  /* #2 */
+  overflow: hidden;
+
+  /* #3 */
+  font-family: sans-serif;
+  color: white;
+  text-align: center;
+
+  /* #4 */
+  background-color: #cde6e7;
+
+  /* #5 */
+  transition-duration: 0.5s;
+  transition-property: background-color;
+}
+
+/*
+ * Styles: Canvas and steps
+ * 1: Make the width/height of the screen, canvas, and steps the same size as the Sequence element
+ * 2: Reset the canvas and steps for better browser consistency
+ */
+.seq-canvas,
+.seq-canvas > * {
+  /* #1 */
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  /* #2 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * Styles: steps
+ * 1: Position steps all in the same place
+ * 2: Add whitespace around each step
+ * 3: Make space for the pagination
+ */
+.seq-canvas > * {
+  /* #1 */
+  position: absolute;
+
+  /* #2 */
+  padding: 32px;
+  box-sizing: border-box;
+
+  /* #3 */
+  height: auto;
+  top: 0;
+  bottom: 80px;
+}
+
+.seq-step1 {
+  background-color: #2a93bc;
+}
+
+.seq-step2 {
+  background-color: #6bc85e;
+}
+
+.seq-step3 {
+  background-color: #45367e;
+}
+
+.feature {
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 460px) and (min-height: 520px) {
+  .feature {
+    width: 100%;
+  }
+}
+
+/* Ghost element */
+.valign:before {
+  content: "";
+  height: 100%;
+}
+
+/* Vertically align the ghost and desired elements */
+.valign:before,
+.valign > .vcenter {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Remove 4px gap to allow consistent valign */
+.valign {
+  font-size: 0;
+}
+
+/* Reset font-size on valigned elements */
+.valign > .vcenter {
+  font-size: 16px;
+  height: 250px;
+  width: 250px;
+}
+
+/*
+ * 1: Reset
+ * 2: Titles should start as transparent
+ * 3: When a change in opacity occurs, transition over .5s
+ */
+h2.title {
+  /* #1 */
+
+  /* #3 */
+  transition-duration: 0.5s;
+  transition-property: opacity, transform;
+}
+
+/*
+ * When a step is active, fade in to opaque and slide to the center
+ */
+.seq-in .title {
+  opacity: 1;
+  transform: translateX(0) translateZ(0);
+}
+
+/*
+ * When a step becomes inactive, fade out and slide to the left
+ */
+.seq-out .title {
+  opacity: 0;
+  transform: translateX(-50px) translateZ(0);
+}
+
+/*
+ * Scale an image to 0 (so it can't be seen) when in its start position
+ */
+.feature {
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+}
+
+/*
+ * When a step is active, make the image scale in
+ */
+.seq-in .feature {
+  transform: translateZ(0) scale(1);
+}
+
+/*
+ * When a step becomes inactive, make the image fade out but maintain full scale
+ */
+.seq-out .feature {
+  transform: translateZ(0) scale(1);
+  opacity: 0;
+}
+
+/*
+ * Styles: element holding navigation UI
+ * 1: Position the nav 40px from the bottom and make it full-width
+ * 2: Reset styles for the <fieldset> element
+ */
+.nav {
+  /* #1 */
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  bottom: 2.5em;
+  max-width: 640px;
+  width: 100%;
+
+  /* #2 */
+  border: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.seq-next:hover,
+.seq-prev:hover {
+  opacity: 1;
+}
+
+/*
+ * Styles: next/previous buttons and pagination container
+
+
+/*
+ * Add some space to sides of pagination
+ */
+.seq-pagination {
+  margin: 0 1em;
+  padding: 0;
+  cursor: default;
+}
+
+/*
+ * Styles: pagination links
+ * 1: Make the links relative so their active indicator dot can be position: absolute
+ * 2: Reset styles
+ * 3: Make the links sit side-by-side
+ * 4: General styles
+ */
+.seq-pagination li {
+  /* #1 */
+  position: relative;
+
+  /* #2 */
+  list-style: none;
+
+  /* #3 */
+  display: inline-block;
+  vertical-align: middle;
+
+  /* #4 */
+  width: 50px;
+  height: 40px;
+  margin: 0 0.25em;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+.icon {
+  background: url("F/iccc.svg");
+  height: 25px;
+  width: 25px;
+  display: block;
+  bottom: 0px;
+  left: 260px;
+  position: absolute;
+  margin: 10px;
+  cursor: pointer;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 200ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay.light {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 111;
+}
+.overlay .cancel {
+  position: absolute;
+  width: 100%;
+  display: block;
+  height: 100%;
+  cursor: default;
+  z-index: 11;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  background: #fff;
+  width: 583px;
+  height: 507px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background-image: url("F/comp.jpg");
+    background-repeat: round;
+}
+.light .popup {
+  border-color: #aaa;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+
+
+
+.popupx {
+  background: #fff;
+  width: 518px;
+  height: 600px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+
+    background-repeat: round;
+}
+
+
+
+
+
+ /*caaardddddddddd mmmmmmmmmmmaaaaaaaaaaaagggggggggggggg*/
+
+
+.wrap {
+ /* max-width: 480px;
+  margin: 80px auto;
+  padding: 10px 20px;
+  border: tomato 7px solid;
+  position: relative;*/
+}
+
+
+.sty {
+  background: #fff;
+  width: 518px;
+  height: 600px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  background-image: url("F/jcognitivefunctions2.png");
+    background-repeat: round;
+}
+
+.magnifierRentgen {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+.magnifierRentgen .magnifier-loupe {
+  overflow: hidden;
+  position: absolute;
+  border-radius: 2em;
+  top: 0;
+  left: 0;
+  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 8px;
+  cursor: none;
+  transform: scale(3);
+  display: none;
+}
+
+
+
+
+
+
+/* caaardddddddddd */
+.card {
+  width: 250px;
+  height: 300px;
+  background-color: rgb(81, 160, 125);
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 2px;
+  left: 1px;
+  transform: translate(0%, 0%);
+  -webkit-transform: translate(0%, 0%);
+  cursor: pointer;
+  z-index: 9;
+}
+.card p {
+  color: white;
+  font-family: -webkit-pictograph, serif;
+  font-size: 13pt;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0 10px;
+  margin-top: 0px;
+}
+
+.author {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(80, 156, 84);
+  position: absolute;
+  left: 0;
+  border-radius: 10px 10px 0 0 ;
+  top: 0px;
+}
+.author h3 {
+  padding-top: 6px;
+  color: white;
+  font-family: "Ubuntu Condensed", sans-serif;
+  text-transform: uppercase;
+  font-size: 11pt;
+}
+
+.quotation-mark {
+  x: 0px;
+  y: 0px;
+  enable-background: new 0 0 50 50;
+  width: 50px;
+  height: 70px;
+}
+.quotation-mark text {
+  fill: white;
+  font-family: "TimesNewRomanPS-BoldMT";
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* caaardddddddddd2222222222222222222222222222222222222222 */
+.card2 {
+  width: 250px;
+  height: 300px;
+  background-color: rgb(191, 89, 89);
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 2px;
+  left: 1px;
+  transform: translate(0%, 0%);
+  -webkit-transform: translate(0%, 0%);
+  cursor: pointer;
+  z-index: 9;
+}
+.card2 p {
+  color: white;
+  font-family: -webkit-pictograph, serif;
+  font-size: 13pt;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0 10px;
+  margin-top: 0px;
+}
+
+.author2 {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(156, 80, 80);
+  position: absolute;
+  left: 0;
+  border-radius: 10px 10px 0 0 ;
+  top: 0px;
+}
+.author2 h3 {
+  padding-top: 6px;
+  color: white;
+  font-family: "Ubuntu Condensed", sans-serif;
+  text-transform: uppercase;
+  font-size: 11pt;
+}
+
+.quotation2-mark2 {
+  x: 0px;
+  y: 0px;
+  enable-background: new 0 0 50 50;
+  width: 50px;
+  height: 70px;
+}
+.quotation2-mark2 text {
+  fill: white;
+  font-family: "TimesNewRomanPS-BoldMT";
+}
+
+.unselectable2 {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+
+
+
+
+.container {
+  position: absolute;
+  right: 6px;
+  z-index: 9;
+  /*padding-top: 10px;  #90909024*/
+  overflow-y: scroll;
+  width: 400px;
+  height: 97vh;
+  color: black;
+  padding-right: 7px;
+  margin-top: 9px;
+  background-color: #00000024;
+  display: none;
+}
+#authorTextz{
+  font-family: "Ubuntu Condensed", sans-serif;
+  text-transform: uppercase;
+  font-size: 13pt;
+  text-align: left;
+  margin-bottom: 8px;
+  margin-top: 0px;
+}
+#quoteTextz{
+text-align: justify;
+font-family: system-ui;
+padding: 0px;
+margin: 0px;
+line-height: 30px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(0,0,0,0.00);
+}
+
+::-webkit-scrollbar-thumb {
+background-color: #000000;
+}
+
+
+
+
+
+
+
+
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+.raise {
+  --color: #000000;
+  --hover: #000000;
+}
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: rgb(0, 0, 0);
+}
+
+button {
+  position: absolute;
+  background: none;
+  border: 2px solid;
+  font-family: 'Oswald';
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  top: 45%;
+  right: 15vw;
+  z-index: 8;
+}

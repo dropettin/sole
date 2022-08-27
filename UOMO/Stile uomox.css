@@ -1,0 +1,164 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+  background-color:aliceblue;
+	background-image:url();
+  padding-top: 2vh;
+}
+body #background{
+  height: 140vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+SVG{
+  height: 190vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+	    .muscle-highlight .muscle-shape {
+	        opacity: 1;
+	        -moz-transition: fill 0.3s ease-out;
+	        -webkit-transition: fill 0.3s ease-out;
+	        transition: fill 0.3s ease-out;
+	    }
+	    .muscle-highlight:hover .muscle-shape {
+	        opacity: 1;
+	        -moz-transition: fill 0.2s ease-in;
+	        -webkit-transition: fill 0.2s ease-in;
+	        transition: fill 0.2s ease-in;
+			fill: red;
+	    }
+
+
+
+.toggle-button {
+  position: relative;
+  display: inline-block;
+  color: black;
+  margin: 0 20px; }
+  .toggle-button label {
+	font-size: 1.5vw;
+    display: inline-block;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: left; 
+    font-family: 'Lato', sans-serif;
+	font-weight: normal;
+	text-transform: capitalize;}
+  .toggle-button input {
+    display: none; }
+  .toggle-button__icon {
+    cursor: pointer;
+    pointer-events: none; }
+    .toggle-button__icon:before, .toggle-button__icon:after {
+      content: "";
+      position: absolute;
+      transition: 0.2s ease-out; }
+
+
+.toggle-button--maa {
+    display: block;
+    width: 110px;
+   /* margin: 0 auto 10px auto; */ }
+
+.toggle-button--maa label {
+  width: 110px;
+  height: 5vh;
+  line-height: 3vh;
+  transition: all 0.2s; }
+  .toggle-button--maa label:before, .toggle-button--maa label:after {
+    position: absolute;
+    top: 0;
+    left: 2vw;
+    width: 110px;
+    transition: all 0.2s .1s ease-out; }
+  .toggle-button--maa label:before {
+    content: attr(data-text); }
+
+.toggle-button--maa input:checked ~ .toggle-button__icon:before {
+  animation: wave .7s ease-out; }
+
+.toggle-button--maa input:checked ~ .toggle-button__icon:after {
+  transform: scale(1);
+  animation: zoomIn .3s; }
+
+.toggle-button--maa .toggle-button__icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 3vh;
+  width: 3vh;
+  border-radius: 50%;
+  background:black; }
+  .toggle-button--maa .toggle-button__icon:before, .toggle-button--maa .toggle-button__icon:after {
+    border-radius: 50%; }
+  .toggle-button--maa .toggle-button__icon:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.89); }
+  .toggle-button--maa .toggle-button__icon:after {
+    top: 0.6vh;
+    left: 0.6vh;
+    width: 60%;
+    height: 60%;
+    background:#FFFFFF;
+    animation: zoomOut .0s ease-out;
+    transform: scale(0);
+    transition: none; }
+
+.toggle-button--maa:hover input:not(:checked) ~ .toggle-button__icon {
+  animation: hover .2s; }
+
+.toggle-button--maa:hover input:not(:checked) ~ label:before {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); }
+
+@keyframes wave {
+  0% {
+    opacity: 1;
+    transform: scale(1.1); }
+  40% {
+    opacity: 0.2; }
+  100% {
+    opacity: 0;
+    transform: scale(1.5); } }
+@keyframes zoomIn {
+  0% {
+    transform: scale(0); }
+  10% {
+    transform: scale(0.1); }
+	  20% {
+    transform: scale(0.2); }
+	  30% {
+    transform: scale(0.3); }
+	  40% {
+    transform: scale(0.4); }
+	  50% {
+    transform: scale(0.5); }
+	  60% {
+    transform: scale(0.6); }
+	  70% {
+    transform: scale(0.7); }
+	  80% {
+    transform: scale(0.8); }
+	  90% {
+    transform: scale(0.9); }
+  100% {
+    transform: scale(1); } }
+@keyframes zoomOut {
+  0% {
+    transform: scale(1); }
+  30% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1); } }
+@keyframes hover {
+  0% {
+    transform: scale(1); }
+  30% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1); } }

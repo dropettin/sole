@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tecniche</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet"><link rel="stylesheet" href="tecniche style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="site-wrap">
+  <div class="panel-wrap animate--none">
+    <div class="panel" data-x-pos="0"  data-y-pos="0">
+      <span class="panel__nav panel__nav--up js-up">PAO</span>
+      <span class="panel__nav panel__nav--right-top js-up js-right">up/right</span>
+      <span class="panel__nav panel__nav--left-top js-up js-left">up/left</span>
+      <span class="panel__nav panel__nav--left js-left">left</span>
+      <span class="panel__nav panel__nav--right js-right">right</span>
+      <span class="panel__nav panel__nav--right-down js-down js-right">down/right</span>
+      <span class="panel__nav panel__nav--left-down js-down js-left">down/left</span>
+      <span class="panel__nav panel__nav--down js-down">CALENDARIO</span>
+      <span class="panel__zoom js-zoom">Vedi tutte</span>
+		<h1 data-modal-target="#modal" style="font-size:300%;">TECNICA DEI LOCI</h1>
+      <div class="panel__animation-list">
+        <span class="js-animation active" data-animation="animate--none"></span>
+      </div>
+    </div>
+    <div class="panel" data-x-pos="0"  data-y-pos="1">
+      <span class="panel__nav panel__nav--left js-left">left</span>
+      <span class="panel__nav panel__nav--right js-right">right</span>
+      <span class="panel__nav panel__nav--right-down js-down js-right">down/right</span>
+      <span class="panel__nav panel__nav--left-down js-down js-left">down/left</span>
+      <span class="panel__nav panel__nav--down js-down">down</span>
+      <h1 data-modal2-target="#modal2" style="font-size:300%;">PAO</h1>
+    </div>
+    <div class="panel" data-x-pos="-1"  data-y-pos="1">
+      <span class="panel__nav panel__nav--right-down js-down js-right">down/right</span>
+      <span class="panel__nav panel__nav--right js-right">right</span>
+      <span class="panel__nav panel__nav--down js-down">down</span>
+      <h1>Up Left</h1>
+    </div>
+    <div class="panel" data-x-pos="1"  data-y-pos="1">
+      <span class="panel__nav panel__nav--left-down js-down js-left">down/left</span>
+      <span class="panel__nav panel__nav--left js-left">left</span>
+      <span class="panel__nav panel__nav--down js-down">down</span>
+      <h1>Up Right</h1>
+    </div>
+    <div class="panel" data-x-pos="-1"  data-y-pos="0">
+      <span class="panel__nav panel__nav--up js-up">up</span>
+      <span class="panel__nav panel__nav--right-top js-up js-right">up/right</span>
+      <span class="panel__nav panel__nav--right js-right">right</span>
+      <span class="panel__nav panel__nav--right-down js-down js-right">down/right</span>
+      <span class="panel__nav panel__nav--down js-down">down</span>
+      <h1>Left</h1>
+    </div>
+    <div class="panel" data-x-pos="-1"  data-y-pos="-1">
+      <span class="panel__nav panel__nav--up js-up">up</span>
+      <span class="panel__nav panel__nav--right-top js-up js-right">up/right</span>
+      <span class="panel__nav panel__nav--right js-right">right</span>
+      <h1>Down Left</h1>
+    </div>
+    <div class="panel" data-x-pos="1"  data-y-pos="-1">
+      <span class="panel__nav panel__nav--up js-up">up</span>
+      <span class="panel__nav panel__nav--left-top js-up js-left">up/left</span>
+      <span class="panel__nav panel__nav--left js-left">left</span>
+      <h1>Down Right</h1>
+    </div>
+    <div class="panel" data-x-pos="1"  data-y-pos="0">
+      <span class="panel__nav panel__nav--up js-up">up</span>
+      <span class="panel__nav panel__nav--left-top js-up js-left">up/left</span>
+      <span class="panel__nav panel__nav--left js-left">left</span>
+      <span class="panel__nav panel__nav--left-down js-down js-left">down/left</span>
+      <span class="panel__nav panel__nav--down js-down">down</span>
+      <h1>Right</h1>
+    </div>
+    <div class="panel" data-x-pos="0"  data-y-pos="-1">
+      <span class="panel__nav panel__nav--up js-up">up</span>
+      <span class="panel__nav panel__nav--left-top js-up js-left">up/left</span>
+      <span class="panel__nav panel__nav--right-top js-up js-right">up/right</span>
+      <span class="panel__nav panel__nav--left js-left">left</span>
+      <span class="panel__nav panel__nav--right js-right">right</span>
+      <span class="panel__nav panel__nav--down js-down">down</span>
+      <h1 data-modal3-target="#modal3" style="font-size:300%;">CALENDARIO</h1>
+    </div>
+    <div class="panel" data-x-pos="0"  data-y-pos="-2">
+      <span class="panel__nav panel__nav--up js-up">up</span>
+      <h1>Down 2</h1>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script  src="tecniche script.js"></script>
+	
+<!-- partialstyleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy loci CENTRO-->
+<style> 
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+
+  border: 1px solid black;
+  border-radius: 0px;
+  z-index: 10;
+  background-color: white;
+}
+
+.modal.active {
+  animation: bounceIn 0.8s ease forwards;
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  background-color:chocolate;
+  color: white;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+  color:darkslategrey;
+}
+	
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+</style>
+
+<body>
+	<!-- partialbobybybybybybybybyybybybybyybybybybybyybyboboboboboobobobobobobobbodybodybodybodybodybodybodybodybodybodybody -->
+<body>
+
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">Tecnica dei loci</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
+    </div>
+  </div>
+  <div id="overlay"></div>
+</body>
+<script>/* The Close Buttonscriptttttttttttttttttttttttttttttttsssssssssssssssssssssssssssssssssssssssssss */
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
+})
+
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.modal.active')
+  modals.forEach(modal => {
+    closeModal(modal)
+  })
+})
+
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+</script>
+</body>	
+	
+<!-- partialstyleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy pao NORD-->
+<style> 
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+#overlay2 {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay2.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal2 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+
+  border: 1px solid black;
+  border-radius: 0px;
+  z-index: 10;
+  background-color: white;
+}
+
+.modal2.active {
+  animation: bounceInDown 0.8s ease forwards;
+}
+
+.modal2-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  background-color:brown;
+  color: white;
+}
+
+.modal2-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal2-header .close2-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal2-body {
+  padding: 10px 15px;
+  color:darkslategrey;
+}
+	
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+</style>
+
+<body>
+	<!-- partialbobybybybybybybybyybybybybyybybybybybyybyboboboboboobobobobobobobbodybodybodybodybodybodybodybodybodybodybody -->
+<body>
+
+  <div class="modal2" id="modal2">
+    <div class="modal2-header">
+      <div class="title2">Tecnica PAO</div>
+      <button data-close2-button class="close2-button">&times;</button>
+    </div>
+    <div class="modal2-body">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
+    </div>
+  </div>
+  <div id="overlay2"></div>
+</body>
+<script>/* The Close Buttonscriptttttttttttttttttttttttttttttttsssssssssssssssssssssssssssssssssssssssssss */
+const openModal2Buttons = document.querySelectorAll('[data-modal2-target]')
+const closeModal2Buttons = document.querySelectorAll('[data-close2-button]')
+const overlay2 = document.getElementById('overlay2')
+
+openModal2Buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal2 = document.querySelector(button.dataset.modal2Target)
+    openModal2(modal2)
+  })
+})
+
+overlay2.addEventListener('click', () => {
+  const modals2 = document.querySelectorAll('.modal2.active')
+  modals2.forEach(modal2 => {
+    closeModal2(modal2)
+  })
+})
+
+closeModal2Buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal2 = button.closest('.modal2')
+    closeModal2(modal2)
+  })
+})
+
+function openModal2(modal2) {
+  if (modal2 == null) return
+  modal2.classList.add('active')
+  overlay2.classList.add('active')
+}
+
+function closeModal2(modal2) {
+  if (modal2 == null) return
+  modal2.classList.remove('active')
+  overlay2.classList.remove('active')
+}
+</script>
+</body>
+	
+<!-- partialstyleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy calendario SUD-->
+<style> 
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+#overlay3 {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay3.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal3 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+
+  border: 1px solid black;
+  border-radius: 0px;
+  z-index: 10;
+  background-color: white;
+}
+
+.modal3.active {
+  animation: bounceInUp 0.8s ease forwards;
+}
+
+.modal3-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  background-color:darkgoldenrod;
+  color: white;
+}
+
+.modal3-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal3-header .close3-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal3-body {
+  padding: 10px 15px;
+	height: 100%;
+  color:darkslategrey;
+  background-color: lightgrey;
+}
+.modal3-body-text1 {
+color: darkslategrey;
+    background-color: lightgrey;
+    width: fit-content;
+    padding: 1px;
+    border: 1px solid green;
+    text-align: right;
+    left: 20rem;
+    position: absolute;
+}
+	.modal3-body-text2 {
+color: darkslategrey;
+    background-color: lightgrey;
+    width: fit-content;
+    padding: 1px;
+    border: 1px solid green;
+    text-align: right;
+		left: 34rem;
+    position: absolute;
+}
+	.modal3-body-text3 {
+color: darkslategrey;
+    background-color: lightgrey;
+    width: fit-content;
+    padding: 1px;
+    border: 1px solid green;
+    text-align: center;
+		left: 58rem;
+    position: absolute;
+}
+
+	
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+	.testo{
+		width: fit-content;
+		position: absolute;
+	}
+	.testotit{
+		position: absolute;
+    width: 16rem;
+top: 7rem;
+    text-align: justify;
+	}
+	.testor{
+		position: absolute;
+    TOP: 60%;
+    text-align: justify;
+	}
+	.testor2{
+		position: absolute;
+    TOP: 60%;
+    right: 1rem;
+    text-align: justify;
+	}
+	.caz{
+		text-align: center;
+	}
+</style>
+
+<body>
+	<!-- partialbobybybybybybybybyybybybybyybybybybybyybyboboboboboobobobobobobobbodybodybodybodybodybodybodybodybodybodybody -->
+<body>
+  <div class="modal3" id="modal3">
+    <div class="modal3-header">
+      <div class="title3">Tecnica del calendario</div>
+      <button data-close3-button class="close3-button">&times;</button>
+    </div>
+    <div class="modal3-body">
+		
+
+		<div class="testo">
+      DIFFICOLTA': FACILE<br>UTILITA': divertente
+		</div>
+		<div class="testotit">
+		tale tecnica consente di calcolare mentalmente il giorno della settimana sapendo la data e l'anno e viceversa.
+		</div>
+	     <div class="modal3-body-text1">
+      g. sett<br>lunedi: 1<br>martedi: 2<br>mercoledi: 3<br>giovedi: 4<br>venerdi: 5<br>sabato: 6<br>domenica: 0/7
+   		 </div>
+		<div class="modal3-body-text2">
+		<div class="caz">cd</div>
+  <table>
+		<tr>
+    <th>gennaio: 6/5B</th>
+    <th>febbraio: 2/1B</th>
+		</tr>
+	  <tr>
+    <th>marzo: 2</th>
+    <th>aprile: 5</th>
+		</tr>
+	  <tr>
+    <th>maggio: 0</th>
+    <th>giugno: 3</th>
+		</tr>
+	  <tr>
+    <th>luglio: 5</th>
+    <th>agosto: 1</th>
+		</tr>
+	  <tr>
+    <th>settembre: 4</th>
+    <th>ottobre: 6</th>
+		</tr><tr>
+    <th>novembre: 2</th>
+    <th>dicembre: 4</th>
+		</tr>
+  </table>
+
+   		 </div>
+		<div class="modal3-body-text3">
+      y (0, 1, 2, 3, 4, 5, 6)<br>si aggiunge +1 per ogni<br>anno ma se e' bisestile(b) +2<br>2000=0  2001=1  2002=2<br>2004=5  2007=1  2009=4<br>2018=1  2019=2  2020=4<br>2017=0  2021=5  2022=6<br>2023=0
+   		 </div>
+		
+		
+		
+	  <div class="testor">
+      che giorno e' il 4 gennaio 2018?<br>
+		  g.sett= gg+cd+y-mcd<br>
+		  4+6+1=11-7=4 E' GIOVEDI'<br><br>
+		  
+		  che data e' il giovedi' febbraio 2018?<br>
+		  gg= +g.settt-cd-y= [+=>cmd+gg] [-=>cmd-gg]<br>
+		  gg=  +4-2-1=+1 => mcd+1 = o 8 o 15 o 22 febbraio 2018
+   		 </div>
+		<div class="testor2">
+      lunedi' febbraio 2018?<br>
+			gg= +1-2-1= -2 => mcd-2 = o 6 o 19 o 26 febbraio 2018<br><br>
+			
+			5 marzo 2021?<br>
+			g.sett= 5+2+5=12-7=5 e' venerdi'
+   		 </div>
+	</div>  
+  </div>
+  <div id="overlay3"></div>
+</body>
+<script>/* The Close Buttonscriptttttttttttttttttttttttttttttttsssssssssssssssssssssssssssssssssssssssssss */
+const openModal3Buttons = document.querySelectorAll('[data-modal3-target]')
+const closeModal3Buttons = document.querySelectorAll('[data-close3-button]')
+const overlay3 = document.getElementById('overlay3')
+
+openModal3Buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal3 = document.querySelector(button.dataset.modal3Target)
+    openModal3(modal3)
+  })
+})
+
+overlay3.addEventListener('click', () => {
+  const modals3 = document.querySelectorAll('.modal3.active')
+  modals3.forEach(modal3 => {
+    closeModal3(modal3)
+  })
+})
+
+closeModal3Buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal3 = button.closest('.modal3')
+    closeModal3(modal3)
+  })
+})
+
+function openModal3(modal3) {
+  if (modal3 == null) return
+  modal3.classList.add('active')
+  overlay3.classList.add('active')
+}
+
+function closeModal3(modal3) {
+  if (modal3 == null) return
+  modal3.classList.remove('active')
+  overlay3.classList.remove('active')
+}
+</script>
+</body>		
+</body>
+</html>
