@@ -1,0 +1,15 @@
+html{
+  background-color: #525659;
+  font-size:22px;
+}
+#youtube-playlist {
+  width: 90%;
+  margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.gajKxr {
+  font-size: 20px;
+}

@@ -22,7 +22,7 @@ body {
   margin: auto;
   background: #fff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 25px;
+  padding: 45px;
   border-radius: 25px;
   height: 400px;
   transition: all 0.3s;
@@ -217,7 +217,7 @@ body {
   position: absolute;
   z-index: auto;
   right: 20px;
-  width: 11px !important;
+  width: 25px !important;
   text-align: center;
   left: auto !important;
   top: 50%;
@@ -237,6 +237,8 @@ body {
 }
 .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 8px 0;
+  height: 22px;
+  width: 22px;
 }
 @media screen and (max-width: 768px) {
   .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
@@ -336,6 +338,17 @@ body {
   width: -webkit-fill-available;
   height: 100%;
   object-fit: cover;
+}
+.popup__text1 {
+
+ /* justify-content: center;
+width: 60%; peeeeeeeeeerrrrrrr la foooootoo a sinistra nel popup*/
+  height: 100%;
+  padding: 4rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 17px;
+  line-height: initial;
+  overflow-y: auto;
 }
 .popup__text {
   display: flex;
