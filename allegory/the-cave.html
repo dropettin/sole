@@ -46,66 +46,6 @@ html.view-out body {
   display: block;
 }
 
-/* ---------- title ---------- */
-.intro {
-  position: fixed;
-  top: max(5vh, 22px);
-  left: max(6vw, 20px);
-  max-width: min(440px, calc(100vw - var(--sun-size) - var(--sun-right) - 64px));
-  z-index: 4;
-}
-
-.eyebrow {
-  margin: 0 0 .4rem;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-h1 {
-  margin: 0;
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: clamp(42px, 8vw, 92px);
-  line-height: .95;
-  letter-spacing: .02em;
-}
-
-.lede {
-  margin: 1rem 0 1.4rem;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(18px, 2.2vw, 24px);
-  line-height: 1.35;
-  color: var(--muted);
-}
-
-.enter {
-  display: inline-flex;
-  align-items: center;
-  gap: .6em;
-  padding: .8em 1.3em;
-  border: 1px solid rgba(255, 196, 120, .55);
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: .04em;
-  color: #fff3dc;
-  text-decoration: none;
-  background: rgba(30, 12, 6, .35);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
-  transition: background .3s, border-color .3s;
-}
-.enter:hover, .enter:focus-visible {
-  background: rgba(255, 150, 60, .25);
-  border-color: #ffc478;
-  outline: none;
-}
-.enter svg { transition: transform .3s; }
-.enter:hover svg { transform: translateX(3px); }
 
 /* ---------- sun ---------- */
 .sun {
@@ -152,46 +92,6 @@ h1 {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* card the sun opens */
-.sun-card {
-  position: fixed;
-  top: calc(var(--sun-top) + var(--sun-size) + 22px);
-  right: max(4vw, 14px);
-  width: min(340px, calc(100vw - 28px));
-  padding: 1.2rem 1.3rem 1.1rem;
-  border: 1px solid rgba(255, 210, 140, .35);
-  border-radius: 16px;
-  background: rgba(40, 22, 14, .72);
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
-  z-index: 6;
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-  transition: opacity .35s, transform .35s;
-}
-.sun-card.open { opacity: 1; transform: none; pointer-events: auto; }
-.sun-card h2 {
-  margin: 0 0 .5rem;
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--gold);
-}
-.sun-card p { margin: 0 0 .8rem; font-size: 14.5px; line-height: 1.6; color: #f3ead9; }
-.sun-card blockquote {
-  margin: 0 0 .9rem;
-  padding-left: .8rem;
-  border-left: 2px solid rgba(255, 211, 107, .6);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 17px;
-  line-height: 1.4;
-  color: #ffe9bf;
-}
-.sun-card a { color: var(--gold); font-size: 14px; font-weight: 600; text-decoration: none; }
-.sun-card a:hover, .sun-card a:focus-visible { text-decoration: underline; outline: none; }
 
 .hint {
   position: fixed;
@@ -269,12 +169,8 @@ h1 {
   z-index: 10;
 }
 html.entering .veil { opacity: 1; }
-html.entering .intro, html.entering .sun, html.entering .sun-card, html.entering .hint { opacity: 0; transition: opacity .4s; }
+html.entering .sun, html.entering .hint { opacity: 0; transition: opacity .4s; }
 
-@media (max-width: 560px) {
-  .scene { --shift: -53%; }
-  .lede { font-size: 17px; margin: .7rem 0 1rem; }
-}
 @media (max-height: 460px) {
   .lede { display: none; }
   h1 { font-size: 40px; }
@@ -283,6 +179,19 @@ html.entering .intro, html.entering .sun, html.entering .sun-card, html.entering
 }
 
 
+
+@media (max-width: 560px) {
+  .scene { --shift: -53%; }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 
 /* =================== inside the cave =================== */
 
@@ -592,6 +501,8 @@ section { position: relative; padding: clamp(80px, 14vh, 140px) 0; }
   font-size: clamp(24px, 3.6vw, 34px);
 }
 .sun-moment p { max-width: 600px; margin-left: auto; margin-right: auto; }
+.to-light { display: inline-block; margin-top: .6rem; padding: .6em 1.2em; border-radius: 999px; border: 1px solid rgba(58, 29, 6, .4); font-weight: 600; text-decoration: none; color: #3a1d06; transition: background .3s; }
+.to-light:hover, .to-light:focus-visible { background: rgba(255, 255, 255, .5); outline: none; }
 
 /* ---------- 4. the return ---------- */
 .return { background: linear-gradient(#f0a24c 0%, #8a4a24 14%, #2a130a 34%, #0b0605 60%); }
@@ -729,6 +640,224 @@ section { position: relative; padding: clamp(80px, 14vh, 140px) 0; }
   .puppet { display: none; }
 }
 
+/* =================== the experience (the sun) =================== */
+html.view-light #outside-view,
+html.view-light #inside-view,
+html.view-out #light-view,
+html.view-in #light-view { display: none; }
+
+#light-view {
+  --ink: #2b1a0c;
+  --soft: rgba(43, 26, 12, .72);
+  color: var(--ink);
+}
+#light-view .eyebrow {
+  margin: 0 0 .6rem;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+#light-view .back-out { color: #2b1a0c; background: rgba(255, 255, 255, .55); border-color: rgba(43, 26, 12, .25); }
+#light-view blockquote { border-color: #d99a3c; }
+#light-view h3.sub { margin-top: 3rem; font-size: 30px; }
+
+.blaze {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 40%, #fff 0, #fffdf5 22%, #fff3cf 45%, #ffe19a 70%, #ffc768 100%);
+}
+.blaze .halo {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 180vmax;
+  height: 180vmax;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: repeating-conic-gradient(rgba(255, 210, 120, .22) 0 3deg, transparent 3deg 11deg);
+  -webkit-mask: radial-gradient(circle, transparent 6%, #000 14%, transparent 55%);
+          mask: radial-gradient(circle, transparent 6%, #000 14%, transparent 55%);
+  animation: spin 200s linear infinite;
+  pointer-events: none;
+}
+.blaze .wrap { position: relative; }
+.blaze h1 {
+  margin: 0 0 1.2rem;
+  font-size: clamp(54px, 10vw, 112px);
+  color: #3a2008;
+  text-shadow: 0 0 50px #fff;
+}
+.blaze .lede {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: var(--serif);
+  font-size: clamp(21px, 2.6vw, 27px);
+  line-height: 1.4;
+  color: #4a2c10;
+}
+.blaze blockquote {
+  display: block;
+  margin: 2rem auto 2.4rem;
+  padding: 0;
+  border: 0;
+  font-size: clamp(30px, 5vw, 46px);
+  color: #8a4b12;
+}
+.turn.dark { color: rgba(58, 32, 8, .75); }
+
+.pale { background: linear-gradient(#ffc768, #fff3d6 12%, #fffaf0 60%, #fff3d6); }
+.pale .wrap + .wrap { margin-top: 1rem; }
+.risks + .pale { background: linear-gradient(#fff3d6, #fffaf0 60%, #fff3d6); }
+
+.states {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin: 1.8rem 0;
+}
+.state {
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .7);
+  border: 1px solid rgba(160, 100, 30, .18);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.state .syl {
+  display: block;
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 1;
+  color: #b8691f;
+}
+.state b { display: block; margin: .4rem 0 .2rem; font-size: 16px; }
+.state.four { background: linear-gradient(145deg, #fff, #fff1c6); border-color: rgba(200, 130, 40, .45); box-shadow: 0 0 40px rgba(255, 200, 90, .35); }
+
+.molecule { background: linear-gradient(#fff3d6, #f6e3c2 40%, #ecd2aa); }
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 1.8rem 0;
+}
+.facts div {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .55);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.facts b { display: block; font-family: var(--serif); font-size: 24px; color: #8a4b12; }
+.reports {
+  list-style: none;
+  margin: 1.4rem 0 2rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.reports li {
+  padding: 14px 16px;
+  border-left: 3px solid #d99a3c;
+  border-radius: 0 12px 12px 0;
+  background: rgba(255, 255, 255, .45);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.reports b { display: block; font-weight: 600; }
+
+.risks {
+  color: #fff3ea;
+  background: linear-gradient(#ecd2aa, #5a1f12 14%, #2a0d07 40%, #2a0d07 86%, #fff3d6);
+}
+#light-view .risks h2 { color: #fff; }
+#light-view .risks .eyebrow { color: #ffc2a0; }
+.warnings { list-style: none; margin: 1.6rem 0; padding: 0; display: grid; gap: 10px; }
+.warnings li {
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 150, 110, .3);
+  background: rgba(255, 120, 80, .08);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+.warnings b { color: #ffb48a; }
+
+.pull {
+  margin: 2.2rem 0 .5rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.25;
+  color: #8a4b12;
+}
+
+.doors-sec { background: linear-gradient(#fff3d6, #f3dcc0); }
+.doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 2rem 0;
+}
+.doors article {
+  padding: 20px 20px 8px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .6);
+  border: 1px solid rgba(160, 100, 30, .16);
+}
+.doors h3 { font-size: 25px; color: #8a4b12; }
+.doors p { font-size: 15px; line-height: 1.6; }
+
+.dusk {
+  color: #f6ece2;
+  background: linear-gradient(#f3dcc0, #e39a62 12%, #8a4d5a 30%, #2c3150 55%, #0f1a2c);
+}
+#light-view .dusk h2 { color: #fff; }
+#light-view .dusk .eyebrow { color: rgba(255, 236, 220, .75); }
+.dusk .questions { list-style: none; padding: 0; margin: 2rem 0; display: grid; gap: 12px; }
+.dusk .questions li {
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 211, 107, .25);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.35;
+  color: #ffe9c4;
+}
+.ways { display: flex; flex-wrap: wrap; gap: 12px; margin: 2.4rem 0 3rem; }
+.ways a {
+  padding: .7em 1.3em;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 211, 107, .5);
+  text-decoration: none;
+  font-weight: 500;
+  color: #ffe9c4;
+  transition: background .3s;
+}
+.ways a:hover, .ways a:focus-visible { background: rgba(255, 211, 107, .18); outline: none; }
+#light-view .source { margin: 0; max-width: none; font-size: 13px; line-height: 1.6; color: rgba(246, 236, 226, .6); }
+
+/* the white flash when you touch the sun */
+.flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at calc(100% - var(--sun-right) - var(--sun-size) / 2) calc(var(--sun-top) + var(--sun-size) / 2), #fff 0, #fffbe8 40%, #fff3cf 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .9s ease-in .2s;
+  z-index: 11;
+}
+html.lighting .flash { opacity: 1; }
+html.lighting .sun { transform: scale(14); transition: transform 1.2s cubic-bezier(.6, 0, .4, 1); }
+html.lighting .hint { opacity: 0; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
@@ -736,28 +865,14 @@ section { position: relative; padding: clamp(80px, 14vh, 140px) 0; }
 </head>
 <body>
 <div id="outside-view">
+<h1 class="visually-hidden">The Cave: Plato's allegory</h1>
 
 <canvas id="stars" aria-hidden="true"></canvas>
 
-<header class="intro">
-  <p class="eyebrow">Plato · Republic VII</p>
-  <h1>The Cave</h1>
-  <p class="lede">What if everything you have ever seen were only shadows on a wall?</p>
-  <a class="enter cave-enter" href="#inside">
-    Enter the cave
-    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-</header>
 
-<button class="sun" id="sun" type="button" aria-label="The sun: what it stands for" aria-expanded="false" aria-controls="sun-card"></button>
+<button class="sun" id="sun" type="button" aria-label="Look at the sun: The Experience"></button>
 <div class="hint" id="hint">touch the sun</div>
 
-<aside class="sun-card" id="sun-card" aria-label="The sun">
-  <h2>The Sun</h2>
-  <p>For Plato the sun is the Form of the Good: the source of all truth, and of our power to know it. It is the last thing the freed prisoner learns to look at.</p>
-  <blockquote>“In the world of knowledge the idea of good appears last of all, and is seen only with an effort.”</blockquote>
-  <a href="#ascent" class="cave-enter">Follow the climb to the light →</a>
-</aside>
 
 <div class="scene" id="scene">
 <svg viewBox="0 0 1600 600" role="img" aria-labelledby="scene-title">
@@ -911,6 +1026,157 @@ section { position: relative; padding: clamp(80px, 14vh, 140px) 0; }
 
 
 </div>
+
+<div id="light-view">
+<a class="back-out" href="#outside">← Outside</a>
+
+<!-- ================= WHITE LIGHT ================= -->
+<section class="blaze" id="experience" aria-labelledby="t-blaze">
+  <div class="halo" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow">Looking straight at the sun</p>
+    <h1 id="t-blaze">The Experience</h1>
+    <p class="lede">The last thing the freed prisoner learns to face is the sun. Mystics in many traditions describe the same moment from the inside: the one who looks and what is seen stop being two.</p>
+    <blockquote>“That art thou.”<cite>Chāndogya Upanishad 6.8.7: <em>tat tvam asi</em></cite></blockquote>
+    <a class="turn dark" href="#not-two">
+      Look
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 8l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ================= NOT TWO ================= -->
+<section class="pale" id="not-two" aria-labelledby="t-not-two">
+  <div class="wrap reveal">
+    <p class="eyebrow">Nonduality</p>
+    <h2 id="t-not-two">Not two</h2>
+    <p><em>Advaita</em>, the name of India's great nondual school, simply means “not two”. Its claim is the one Plato points to with the sun: behind the play of forms there is one reality, and you are not separate from it.</p>
+    <p>The Upanishads explain it with clay. Pots, cups and bricks look like different things, but know one lump of clay and you know them all; the shapes are just names. In the same way, every thing and every person is a shape taken by one awareness.</p>
+    <blockquote>“By one clod of clay all that is made of clay may be known: the modification is merely a verbal distinction, a name; the reality is just ‘clay’.”<cite>Chāndogya Upanishad 6.1.4</cite></blockquote>
+  </div>
+
+  <div class="wrap reveal">
+    <h3 class="sub">The four states of the Mandukya</h3>
+    <p>The shortest Upanishad, the Mandukya, reads the sacred syllable OM as a map of consciousness. Its three sounds, A, U and M, are the three states we pass through every day. The silence after the sound is the fourth, which is not really a state at all but what all three appear in.</p>
+    <div class="states">
+      <div class="state"><span class="syl">A</span><b>Waking</b><span>The outward world of objects. In the cave: the shadows on the wall.</span></div>
+      <div class="state"><span class="syl">U</span><b>Dreaming</b><span>The inner world of images the mind makes for itself.</span></div>
+      <div class="state"><span class="syl">M</span><b>Deep sleep</b><span>No objects at all, only a dark, peaceful unknowing.</span></div>
+      <div class="state four"><span class="syl">◯</span><b>The Fourth (turīya)</b><span>The silent awareness in which waking, dream and sleep come and go. In the cave: the sun.</span></div>
+    </div>
+    <blockquote>“Unseen, ungraspable, unthinkable … tranquil, benign, without a second: such they think is the fourth. He is the Self. He should be discerned.”<cite>Mandukya Upanishad 7</cite></blockquote>
+    <p>James Swartz's commentary adds a warning worth keeping: a quiet, empty mind is not yet the goal. The silence of a blank mind is just another state. The Self is the awareness that knows both the noise and the quiet.</p>
+  </div>
+</section>
+
+<!-- ================= THE MOLECULE ================= -->
+<section class="molecule" aria-labelledby="t-molecule">
+  <div class="wrap reveal">
+    <p class="eyebrow">5-MeO-DMT</p>
+    <h2 id="t-molecule">Thrown into the sun</h2>
+    <p>Some people meet this “not two” suddenly, through a substance. The best known is <strong>5-MeO-DMT</strong> (5-methoxy-N,N-dimethyltryptamine), sometimes called “the God molecule”. It was first made in a lab in 1936. It also occurs in some plants used in traditional South American snuffs, and in the venom of the Sonoran Desert toad.</p>
+    <div class="facts">
+      <div><b>Fast</b><span>When inhaled it acts within seconds, peaks within minutes, and is mostly over in under half an hour.</span></div>
+      <div><b>Few visions</b><span>Unlike its cousin DMT, it often brings no images at all: people describe white light, a void, or only awareness.</span></div>
+      <div><b>Overwhelming</b><span>It can completely erase the sense of being a person with a body, a name and a past.</span></div>
+    </div>
+    <p>In Plato's terms, it does not walk you up the passage. It throws you straight into the sun.</p>
+  </div>
+
+  <div class="wrap reveal">
+    <h3 class="sub">What people report</h3>
+    <ul class="reports">
+      <li><b>Dissolution</b>The sense of a separate “me” vanishes.</li>
+      <li><b>Light</b>Everything is replaced by brilliant white light, or by an infinite empty space.</li>
+      <li><b>Unity</b>Not “I saw God” but “there was only this, and I was it”.</li>
+      <li><b>Love</b>Many describe overwhelming love, bliss or relief.</li>
+      <li><b>Terror</b>Others describe dying, panic, or a hell that felt endless.</li>
+      <li><b>Release</b>Shaking, crying, shouting or vomiting as the body lets go.</li>
+      <li><b>Return</b>The “I” comes back, often unsure what just happened to it.</li>
+    </ul>
+    <p>In <em>Entheogenic Liberation</em>, Martin Ball describes the ego as a bundle of habits of energy: ways of speaking, moving and thinking that we take to be “who I am”. In his view what decides between heaven and hell is whether that bundle lets go or fights. He presents nondual realization as the cure for almost every human conflict, and ends his book with the line <em>“You are God.”</em> Not everyone who works with these experiences agrees with his confidence, or with all of his advice.</p>
+    <p>Research is young. A 2019 survey of 362 people by researchers at Johns Hopkins found that many described mystical-type experiences and later reported less depression and anxiety. Surveys like this rely on what people remember and choose to report; they are not controlled trials.</p>
+  </div>
+</section>
+
+<!-- ================= RISKS ================= -->
+<section class="risks" aria-labelledby="t-risks">
+  <div class="wrap reveal">
+    <p class="eyebrow">Before anything else</p>
+    <h2 id="t-risks">The sun burns</h2>
+    <p>Plato's freed prisoner is blinded and in pain when he is dragged into the light too fast. This is not only a metaphor. This page describes; it does not recommend.</p>
+    <ul class="warnings">
+      <li><b>Physical danger.</b> People can lose all control of their body: fall, vomit, or stop protecting their airway. Deaths have been reported, especially when it was combined with other drugs (above all MAOIs such as those in ayahuasca) or used in unsafe settings.</li>
+      <li><b>Mental health.</b> It can trigger lasting terror, anxiety, a feeling of unreality, or psychosis and mania, especially for anyone with a personal or family history of psychosis or bipolar disorder.</li>
+      <li><b>Heart and medicines.</b> It sharply affects heart rate and blood pressure, and it interacts dangerously with a number of medicines.</li>
+      <li><b>The law.</b> It is a controlled substance in many countries (in the United States, for example, Schedule I since 2011).</li>
+      <li><b>The toad.</b> Demand for toad venom harms wild populations of an animal that has done nothing to us.</li>
+    </ul>
+    <p>Ball's own book admits that a session where the ego fights back can leave trauma that lasts months or years. Ball's answer is to go back in with a guide. Many others would say the first step is a qualified therapist and time.</p>
+  </div>
+</section>
+
+<!-- ================= I GOT IT, I LOST IT ================= -->
+<section class="pale" aria-labelledby="t-lost">
+  <div class="wrap reveal">
+    <p class="eyebrow">After the light</p>
+    <h2 id="t-lost">“I got it, I lost it”</h2>
+    <p>The teacher Adyashanti, in <em>The End of Your World</em>, names the most common story of awakening, whether it comes through a drug, meditation or out of nowhere. Someone sees, unmistakably, that they are everything and nothing. A day, a week or a year later it seems to be gone.</p>
+    <p>He compares it to a rocket. It takes enormous thrust to leave the ground, and if the fuel runs out before the rocket escapes the earth's pull, it falls back. The earth is the old dream of a separate “me”, and its gravity works on us the whole way. A glimpse is leaving the ground. <strong>Abiding</strong> is getting free of the pull.</p>
+    <p>That is why he says the real work starts <em>after</em> awakening: facing the places we still hide, the subtle traps (feeling special, clinging to the experience, using “nothing is real” to avoid life), and letting the realization reshape how we actually live. The body often goes through its own rewiring too, as energy is released and the nervous system adjusts.</p>
+    <div class="pull">A peak experience shows you the sun. It does not yet let you live in the daylight.</div>
+  </div>
+</section>
+
+<!-- ================= OTHER DOORS ================= -->
+<section class="doors-sec" aria-labelledby="t-doors">
+  <div class="wrap reveal">
+    <p class="eyebrow">The slow way up</p>
+    <h2 id="t-doors">Other doors to the sun</h2>
+    <p>Plato's prisoner gets used to the light step by step: shadows, then reflections, then things, then the night sky, and only then the sun. Contemplative traditions offer the same gradual climb, with the eyes adjusting at every step.</p>
+    <div class="doors">
+      <article>
+        <h3>Meditation</h3>
+        <p>In <em>The Mind Illuminated</em>, Culadasa maps ten stages, from a mind that wanders all the time to steady, stable attention and strong mindfulness. Under close attention, the “I” turns out to be a story the mind tells about many smaller processes.</p>
+      </article>
+      <article>
+        <h3>The jhānas</h3>
+        <p>Deep states of absorption taught by the Buddha. Leigh Brasington (<em>Right Concentration</em>) describes eight of them, from rapture and joy to boundless space and nothingness. Rob Burbea teaches them playfully, as a way to see how the mind builds every experience.</p>
+      </article>
+      <article>
+        <h3>Self-inquiry</h3>
+        <p>Vedanta's way: keep asking what knows this thought, this feeling, this world. Not a new experience, but the recognition of the awareness that was already looking.</p>
+      </article>
+      <article>
+        <h3>Other explorers</h3>
+        <p>Physicist Tom Campbell (<em>My Big TOE</em>) and Robert Monroe describe expanded states reached through meditation and sound, including leaving the body. Their maps are personal reports to read with an open, careful mind.</p>
+      </article>
+    </div>
+    <p>Slow paths take years, not minutes. Their gift is that the eyes adjust: what is seen tends to stay seen.</p>
+  </div>
+</section>
+
+<!-- ================= BACK DOWN ================= -->
+<section class="dusk" aria-labelledby="t-dusk">
+  <div class="wrap reveal">
+    <p class="eyebrow">The return</p>
+    <h2 id="t-dusk">Back into the cave</h2>
+    <p>Plato does not end in the sun. The one who has seen the light must go back down, live among the prisoners again, and share their work. Every tradition here agrees. The value of the experience is not the experience but what comes back with it: more kindness, honesty and patience, and less need to be right about the shadows.</p>
+    <p>And the one who returns should remember that their own eyes once hurt in the light, and once could not see in the dark either.</p>
+    <ul class="questions">
+      <li>Is it the light you want, or the experience of seeing it?</li>
+      <li>What would you bring back down to the people you love?</li>
+      <li>Can the next step be a small one?</li>
+    </ul>
+    <div class="ways">
+      <a href="#inside">Into the cave</a>
+      <a href="#outside">Back outside</a>
+    </div>
+    <p class="source">Sources: Plato, <em>Republic</em> VII; the Chāndogya and Mandukya Upanishads (tr. R. E. Hume, 1921); James Swartz, <em>Mandukya Upanishad</em>; Adyashanti, <em>The End of Your World</em>; Martin W. Ball, <em>Entheogenic Liberation</em>; Culadasa, <em>The Mind Illuminated</em>; Leigh Brasington, <em>Right Concentration</em>; Rob Burbea, <em>Practising the Jhānas</em>; Tom Campbell, <em>My Big TOE</em>; Robert Monroe, <em>Journeys Out of the Body</em>; A. K. Davis et al., 2019 survey of 5-MeO-DMT use.</p>
+  </div>
+</section>
+</div>
+
 
 <div id="inside-view">
 
@@ -1142,6 +1408,7 @@ section { position: relative; padding: clamp(80px, 14vh, 140px) 0; }
     <h2 id="t-sun">The sun itself</h2>
     <blockquote>“He will see the sun, and not mere reflections of him in the water, but he will see him in his own proper place, and not in another; and he will contemplate him as he is.”</blockquote>
     <p>For Plato the sun is the <strong>Form of the Good</strong>: the highest thing there is to understand. Just as the sun lets us see and lets things grow, the Good is what makes truth knowable and gives everything its being.</p>
+    <p><a class="to-light" href="#experience">Look into the sun: The Experience →</a></p>
   </div>
 </section>
 
@@ -1246,31 +1513,26 @@ section { position: relative; padding: clamp(80px, 14vh, 140px) 0; }
 </div>
 
 <div class="veil" aria-hidden="true"></div>
+<div class="flash" aria-hidden="true"></div>
 
 <script>
 (function () {
   var root = document.documentElement;
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var sun = document.getElementById('sun');
-  var card = document.getElementById('sun-card');
   var hint = document.getElementById('hint');
   var scene = document.getElementById('scene');
   var touched = false;
 
-  function setCard(open) {
-    card.classList.toggle('open', open);
-    sun.setAttribute('aria-expanded', open);
-  }
-  sun.addEventListener('click', function (e) {
-    e.stopPropagation();
+
+  // touching the sun: the light swallows everything, then The Experience
+  sun.addEventListener('click', function () {
     touched = true;
     hint.classList.remove('show');
-    setCard(!card.classList.contains('open'));
+    if (still) { location.hash = '#experience'; return; }
+    root.classList.add('lighting');
+    setTimeout(function () { location.hash = '#experience'; }, 1300);
   });
-  document.addEventListener('click', function (e) {
-    if (!card.contains(e.target)) setCard(false);
-  });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setCard(false); });
 
   setTimeout(function () { if (!touched) hint.classList.add('show'); }, 3000);
   setTimeout(function () { hint.classList.remove('show'); }, 10000);
@@ -1320,7 +1582,7 @@ section { position: relative; padding: clamp(80px, 14vh, 140px) 0; }
   }
 
   function draw() {
-    if (root.classList.contains('view-in')) { if (!still) requestAnimationFrame(draw); return; }
+    if (!root.classList.contains('view-out')) { if (!still) requestAnimationFrame(draw); return; }
     ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = '#e8eeff';
     for (var i = 0; i < stars.length; i++) {
@@ -1355,20 +1617,23 @@ section { position: relative; padding: clamp(80px, 14vh, 140px) 0; }
   var current = null;
   function route() {
     var hash = location.hash;
-    var view = hash && hash !== '#outside' ? 'in' : 'out';
-    var target = view === 'in' && hash !== '#inside' ? document.getElementById(hash.slice(1)) : null;
+    var target = hash && hash !== '#outside' && hash !== '#inside' ? document.getElementById(hash.slice(1)) : null;
+    var view = !hash || hash === '#outside' ? 'out'
+      : target && target.closest('#light-view') ? 'light' : 'in';
     if (view !== current) {
       root.classList.toggle('view-in', view === 'in');
       root.classList.toggle('view-out', view === 'out');
+      root.classList.toggle('view-light', view === 'light');
       root.style.scrollBehavior = 'auto';
       window.scrollTo(0, 0);
       if (target) target.scrollIntoView();
       root.style.scrollBehavior = '';
       if (view === 'out') { scene.style.transform = ''; resize(); }
-      document.title = view === 'in' ? 'Inside the Cave' : 'The Cave';
+      document.title = { out: 'The Cave', in: 'Inside the Cave', light: 'The Experience' }[view];
+      document.querySelector('meta[name="theme-color"]').content = { out: '#081c2a', in: '#0b0605', light: '#fff3cf' }[view];
       current = view;
       // let the veil fade away, as if your eyes were adjusting
-      requestAnimationFrame(function () { root.classList.remove('entering'); });
+      requestAnimationFrame(function () { root.classList.remove('entering', 'lighting'); });
     } else if (target) {
       target.scrollIntoView();
     }
