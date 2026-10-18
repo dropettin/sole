@@ -23,6 +23,8 @@
   width: 100%;
   height: 100%;
 	position: relative;
+  overflow: hidden;
+  overflow: clip;
 
 }
 
@@ -57,11 +59,16 @@
 }
 
 #scene {
+  width: 1600px;
   height: 100%;
   position: absolute;
   left: 50%;
   margin-left: -800px;
 
+}
+
+#uni {
+  display: block;
 }
 
 .giu {
@@ -147,21 +154,21 @@ when users will click/enter button(link) browser will add a #id in a url and whe
 
 .modal {
 
-    width: 60%;
-    height: 50%;
-  padding: 4rem 2rem;
+  width: min(90%, 640px);
+  max-height: 85%;
+  overflow-y: auto;
+  padding: 4rem 2rem 3rem;
+  box-sizing: border-box;
   border-radius: .8rem;
 
   color: var(--light);
   background: var(--background);
   box-shadow: var(--m-shadow, .4rem .4rem 10.2rem .2rem) var(--shadow-1);
   position: relative;
-
-  overflow: hidden;
 }
 
 .modal__title {
-  margin-top: 4rem;
+  margin-top: 2rem;
   font-size: 22px;
   text-align: center;
 }
@@ -170,7 +177,19 @@ when users will click/enter button(link) browser will add a #id in a url and whe
 text-align: center;
   margin-top: 3rem;
   font-size: 18px;
-  line-height: 2;
+  line-height: 1.7;
+}
+
+.modal__link {
+  color: #ffd700;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.modal__link:hover,
+.modal__link:focus {
+  color: #fff;
 }
 
 
@@ -188,8 +207,8 @@ text-align: center;
   text-decoration: none;
   position: absolute;
   border-bottom: ridge;
-  top: 37px;
-  right: 47%;
+  top: 1.5rem;
+  right: calc(50% - 1.5rem);
 
   display: flex;
   justify-content: center;
@@ -209,4 +228,43 @@ text-align: center;
   background: var(--focus);
   border-color: var(--focus);
   transform: translateY(-.2rem);
+}
+
+
+
+/* responsive scene: keep the cave, the sign and the boy on screen */
+@media (max-width: 1100px) {
+  #scene {
+    margin-left: -620px;
+  }
+}
+
+@media (max-width: 700px) {
+  #gfooter {
+    height: 46.875vw;
+  }
+
+  #scene {
+    width: 250vw;
+    margin-left: -96.875vw;
+  }
+
+  #gfooterContent {
+    box-sizing: border-box;
+    padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
+    font-size: 100%;
+  }
+
+  .modal {
+    padding: 3.5rem 1.25rem 2rem;
+  }
+
+  .modal__title {
+    margin-top: 1rem;
+  }
+
+  .modal__text {
+    margin-top: 1.5rem;
+    font-size: 16px;
+  }
 }
